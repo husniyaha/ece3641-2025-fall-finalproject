@@ -10,3 +10,7 @@ https://docs.google.com/presentation/d/1lCVIeimAupRm7nAq8TqGExDWqUYUdirR2ilxYgvm
 # demo video
 https://drive.google.com/file/d/1eI1-uuNaq_xz4rOlYGB4-9DBmFra_te5/view?usp=sharing
 
+# report
+https://drive.google.com/file/d/1AiCqlJp7SO6LrL2ZOpdK9H32J9FuO_us/view?usp=sharing
+
+
