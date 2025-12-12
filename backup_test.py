@@ -1,14 +1,4 @@
 #!/usr/bin/python3
-# coding=utf8
-# Date: 2024
-
-# Robot Typing Task - Framework with Pre-calibrated Servo Angles
-
-## 1. Introduction
-# This program controls a robotic arm to grip a pen and type on a keyboard
-# Uses pre-recorded servo angles for reliable key pressing
-
-## 2. Data Loading and Preprocessing
 
 import sys
 import time
@@ -77,7 +67,6 @@ if __name__=='__main__':
     joints_pub = rospy.Publisher('/servo_controllers/port_id_1/multi_id_pos_dur', MultiRawIdPosDur, queue_size=1)
     rospy.sleep(1.0)
 
-    # TEST MODE - Uncomment to test servo ranges
     TEST_MODE = True
     
     if TEST_MODE:

@@ -1,5 +1,3 @@
-
-
 import sys
 import time
 import rospy
@@ -15,21 +13,21 @@ ik = ik_transform.ArmIK()
 ## 3. Pre-calibrated Servo Angles
 # Row 1-15: Different positions for gripping pen and tapping keys 1-6
 servo_positions = {
-    1: {'servo1': 395, 'servo2': 472, 'servo3': 109, 'servo4': 198, 'servo5': 223, 'servo6': 548},   # Grip pen
+    1: {'servo1': 800, 'servo2': 472, 'servo3': 109, 'servo4': 198, 'servo5': 223, 'servo6': 548},   # Grip pen
     2: {'servo1': 800, 'servo2': 472, 'servo3': 119, 'servo4': 199, 'servo5': 125, 'servo6': 555},   # Move to key 1
     3: {'servo1': 800, 'servo2': 472, 'servo3': 337, 'servo4': 419, 'servo5': 127, 'servo6': 571},   # Press key 1 (DOWN)
-    4: {'servo1': 800, 'servo2': 472, 'servo3': 333, 'servo4': 336, 'servo5': 137, 'servo6': 566},   # Lift from key 1
-    5: {'servo1': 800, 'servo2': 472, 'servo3': 263, 'servo4': 372, 'servo5': 124, 'servo6': 555},   # Move to key 2
-    6: {'servo1': 800, 'servo2': 472, 'servo3': 263, 'servo4': 419, 'servo5': 124, 'servo6': 555},   # Press key 2 (DOWN)
-    7: {'servo1': 800, 'servo2': 472, 'servo3': 216, 'servo4': 249, 'servo5': 123, 'servo6': 554},   # Lift from key 2
-    8: {'servo1': 800, 'servo2': 472, 'servo3': 244, 'servo4': 375, 'servo5': 123, 'servo6': 549},   # Move to key 3
-    9: {'servo1': 800, 'servo2': 472, 'servo3': 243, 'servo4': 419, 'servo5': 125, 'servo6': 546},   # Press key 3 (DOWN)
-    10: {'servo1': 800, 'servo2': 472, 'servo3': 244, 'servo4': 382, 'servo5': 125, 'servo6': 536},  # Lift from key 3
-    11: {'servo1': 800, 'servo2': 472, 'servo3': 243, 'servo4': 252, 'servo5': 125, 'servo6': 537},  # Move to key 4
-    12: {'servo1': 800, 'servo2': 472, 'servo3': 245, 'servo4': 419, 'servo5': 123, 'servo6': 525},  # Press key 4 (DOWN)
-    13: {'servo1': 800, 'servo2': 472, 'servo3': 243, 'servo4': 254, 'servo5': 124, 'servo6': 514},  # Lift from key 4
-    14: {'servo1': 800, 'servo2': 472, 'servo3': 244, 'servo4': 381, 'servo5': 123, 'servo6': 510},  # Move to key 5
-    15: {'servo1': 800, 'servo2': 472, 'servo3': 170, 'servo4': 419, 'servo5': 125, 'servo6': 511},  # Press key 5 (DOWN)
+    4: {'servo1': 800, 'servo2': 472, 'servo3': 333, 'servo4': 336, 'servo5': 223, 'servo6': 566},   # Lift from key 1
+    5: {'servo1': 800, 'servo2': 472, 'servo3': 263, 'servo4': 372, 'servo5': 124, 'servo6': 500},   # Move to key 2
+    6: {'servo1': 800, 'servo2': 472, 'servo3': 263, 'servo4': 419, 'servo5': 124, 'servo6': 510},   # Press key 2 (DOWN)
+    7: {'servo1': 800, 'servo2': 472, 'servo3': 216, 'servo4': 249, 'servo5': 223, 'servo6': 510},   # Lift from key 2
+    8: {'servo1': 800, 'servo2': 472, 'servo3': 244, 'servo4': 375, 'servo5': 123, 'servo6': 470},   # Move to key 3
+    9: {'servo1': 800, 'servo2': 472, 'servo3': 243, 'servo4': 419, 'servo5': 125, 'servo6': 470},   # Press key 3 (DOWN)
+    10: {'servo1': 800, 'servo2': 472, 'servo3': 244, 'servo4': 382, 'servo5': 223, 'servo6': 470},  # Lift from key 3
+    11: {'servo1': 800, 'servo2': 472, 'servo3': 243, 'servo4': 252, 'servo5': 125, 'servo6': 450},  # Move to key 4
+    12: {'servo1': 800, 'servo2': 472, 'servo3': 245, 'servo4': 419, 'servo5': 123, 'servo6': 450},  # Press key 4 (DOWN)
+    13: {'servo1': 800, 'servo2': 472, 'servo3': 243, 'servo4': 254, 'servo5': 223, 'servo6': 450},  # Lift from key 4
+    14: {'servo1': 800, 'servo2': 472, 'servo3': 244, 'servo4': 381, 'servo5': 123, 'servo6': 430},  # Move to key 5
+    15: {'servo1': 800, 'servo2': 472, 'servo3': 240, 'servo4': 419, 'servo5': 125, 'servo6': 430},  # Press key 5 (DOWN)
 }
 
 ## 4. Stop Function
@@ -122,11 +120,11 @@ if __name__=='__main__':
 
         # STAGE 5: Press Key 3
         print("Pressing Key 3...")
-        move_to_position(9, duration=1000)  # Move to key 3
+        move_to_position(8, duration=1000)  # Move to key 3
         time.sleep(0.5)
-        move_to_position(10, duration=1000)  # Press down
+        move_to_position(9, duration=1000)  # Press down
         time.sleep(0.3)
-        move_to_position(11, duration=1000)  # Lift up
+        move_to_position(10, duration=1000)  # Lift up
         time.sleep(0.5)
 
         # STAGE 6: Press Key 4
@@ -143,6 +141,8 @@ if __name__=='__main__':
         move_to_position(15, duration=1000)  # Move to key 5
         time.sleep(0.5)
         time.sleep(1.0)
+	
+
 
         # STAGE 8: Release pen and return to neutral
         print("Releasing pen...")
